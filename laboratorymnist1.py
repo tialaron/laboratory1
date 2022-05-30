@@ -9,7 +9,7 @@ import time
 from datetime import datetime 
 
 
-st.markdown('''<h1 style='text-align: center; color: black;'>Разведочный анализ данных</h1>''', unsafe_allow_html=True)
+#st.markdown('''<h1 style='text-align: center; color: black;'>Разведочный анализ данных</h1>''', unsafe_allow_html=True)
 # img = Image.open('2_RANEPA.png') #1_RANEPA.jpg or 2_RANEPA.png
 # st.image(img, use_column_width='auto') #width=400
 
