@@ -1,6 +1,6 @@
 #import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np #Numpy
+#import seaborn as sns
+import numpy as np 
 from PIL import Image
 import time
 from datetime import datetime
