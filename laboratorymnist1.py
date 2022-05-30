@@ -13,5 +13,5 @@ from datetime import datetime
 # img = Image.open('2_RANEPA.png') #1_RANEPA.jpg or 2_RANEPA.png
 # st.image(img, use_column_width='auto') #width=400
 
-new_title = '<p style="font-family:serif; color:Green; font-size: 42px;">New image</p>'
+new_title = '<p style="font-family:serif; color:Black; font-size: 22px;">New image</p>'
 st.markdown(new_title, unsafe_allow_html=True)
