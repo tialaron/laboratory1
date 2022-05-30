@@ -15,3 +15,9 @@ from datetime import datetime
 
 new_title = '<p style="font-family:serif; color:Black; font-size: 22px;">New image</p>'
 st.markdown(new_title, unsafe_allow_html=True)
+
+st.write("""
+Данный сримлит предназначен для лабораторной работы задач машинного обучения: классификация.
+
+\nДанные подготовил Абдулвасиев Муминшо.
+""")
