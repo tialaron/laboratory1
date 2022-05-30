@@ -8,4 +8,5 @@ import pandas as pd
 import streamlit as st
 
 #st.set_page_config(layout="wide")
-st.title('Лабораторная работа "Распознавание рукописных цифр". ')
+st.markdown('''<h1 style='text-align: center; color: black;'>Цифры MNIST</h1>''', unsafe_allow_html=True)
+#st.title('Лабораторная работа "Распознавание рукописных цифр". ')
