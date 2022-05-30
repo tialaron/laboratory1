@@ -40,10 +40,10 @@ with st.expander('Пункт 5.'):
 
 with st.expander('Пункт 6.'):
     st.write('Нажми на кнопку распознавания, запиши результат.')
-    col3, col4 = st.columns(2)
-            with col3:
+col3, col4 = st.columns(2)
+    with col3:
                         st.image(img_file_buffer)
-            with col4:
+    with col4:
                         st.write('Машина распознала')
 
 with st.expander('Пункт 7.'):
