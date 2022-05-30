@@ -1,8 +1,8 @@
 #from turtle import width
 import streamlit as st
 import pandas as pd #Пандас
-import matplotlib.pyplot as plt #Отрисовка графиков
-import seaborn as sns
+#import matplotlib.pyplot as plt #Отрисовка графиков
+#import seaborn as sns
 import numpy as np #Numpy
 from PIL import Image
 import time
