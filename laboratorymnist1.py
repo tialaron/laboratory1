@@ -40,6 +40,11 @@ with st.expander('Пункт 5.'):
 
 with st.expander('Пункт 6.'):
     st.write('Нажми на кнопку распознавания, запиши результат.')
+    col3, col4 = st.columns(2)
+            with col3:
+                        st.image(img_file_buffer)
+            with col4:
+                        st.write('Машина распознала')
 
 with st.expander('Пункт 7.'):
     st.write('Включи коррекцию яркости, если она есть, и посмотри, улучшило ли это изображение негатива цифры.'
