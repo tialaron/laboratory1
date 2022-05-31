@@ -6,7 +6,8 @@ import seaborn as sns
 import numpy as np #Numpy
 from PIL import Image
 import time
-from datetime import datetime 
+from datetime import datetime
+from tensorflow.keras.models import load_model
 
 def show_image(img):
     plt.imshow(Image.fromarray(img).convert('RGB')) #Отрисовка картинки .convert('RGB')
