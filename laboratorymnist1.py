@@ -56,26 +56,26 @@ with st.expander('Пункт 5.'):
 with st.expander('Пункт 6.'):
     st.write('Нажми на кнопку распознавания, запиши результат.')
 
-col3, col4 = st.columns(2)
-with col3:
-            st.write('Вот что увидела нейронная сеть.')
-            if img_file_buffer is not None:
-                        image11 = Image.open('/app/laboratory1/your_file_image.png')
-                        img11 = image11.resize((28, 28), Image.ANTIALIAS)        
-                        img12 = img11.convert("L")
-                        imgData = np.asarray(img12)
-                        step_lobe = .4
-                        mid_img_color = np.sum(imgData) / imgData.size
-                        min_img_color = imgData.min()
-                        THRESHOLD_VALUE = int(mid_img_color - (mid_img_color - min_img_color) * step_lobe)
-                        thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
-                        imgData1 = np.expand_dims(thresholdedData, axis=0)
-                        #show_image(imgData1)
-                        st.image('/app/laboratory1/your_file_image.png')
+    col3, col4 = st.columns(2)
+    with col3:      
+              st.write('Вот что увидела нейронная сеть.')
+              if img_file_buffer is not None:
+                          image11 = Image.open('/app/laboratory1/your_file_image.png')
+                          img11 = image11.resize((28, 28), Image.ANTIALIAS)        
+                          img12 = img11.convert("L")
+                          imgData = np.asarray(img12)
+                          step_lobe = .4
+                          mid_img_color = np.sum(imgData) / imgData.size
+                          min_img_color = imgData.min()
+                          THRESHOLD_VALUE = int(mid_img_color - (mid_img_color - min_img_color) * step_lobe)
+                          thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
+                          imgData1 = np.expand_dims(thresholdedData, axis=0)
+                          #show_image(imgData1)
+                          st.image('/app/laboratory1/your_file_image.png')
 
                         
-with col4:
-                st.write('Она распознала это как...')
+    with col4:
+              st.write('Она распознала это как...')
 
 with st.expander('Пункт 7.'):
     st.write('Включи коррекцию яркости, если она есть, и посмотри, улучшило ли это изображение негатива цифры.'
