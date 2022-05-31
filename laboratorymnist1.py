@@ -8,6 +8,10 @@ from PIL import Image
 import time
 from datetime import datetime 
 
+def show_image(img):
+  plt.imshow(Image.fromarray(img).convert('RGB')) #Отрисовка картинки .convert('RGB')
+  plt.show()
+            
 st.markdown('''<h1 style='text-align: center; color: black;'
             >Лабораторная работа "Распознавание рукописных цифр".</h1>''', 
             unsafe_allow_html=True)
@@ -31,6 +35,16 @@ with col1:
 
 with col2: 
             img_file_buffer = st.camera_input("Take a picture")
+            if img_file_buffer is not None:
+                        img = Image.open(img_file_buffer)
+                        img_height, img_width = img_array.shape[0], img_array.shape[1]
+                        img_center = int(img_width / 2)
+                        left_border = int(img_center - img_height / 2)
+                        right_border = int(img_center + img_height / 2)
+                        img_array1 = img_array[:, left_border:right_border, :]
+                        im = Image.fromarray(img_array1)
+                        im.save('/app/mnist_theory2/your_file_image.png')
+            
             
 with st.expander('Пункт 5.'):
     st.write('Зарисуй полученное изображение чёрно - белой цифры в окошке под снимком цифры в бланк отчёта. '
@@ -43,9 +57,23 @@ with st.expander('Пункт 6.'):
 
 col3, col4 = st.columns(2)
 with col3:
-                st.write('строка')
+            st.write('Вот что увидела нейронная сеть.')
+            if img_file_buffer is not None:
+                        image11 = Image.open('/app/mnist_theory2/your_file_image.png')
+                        img11 = image11.resize((28, 28), Image.ANTIALIAS)        
+                        img12 = img11.convert("L")
+                        imgData = np.asarray(img12)
+                        step_lobe = .4
+                        mid_img_color = np.sum(imgData) / imgData.size
+                        min_img_color = imgData.min()
+                        THRESHOLD_VALUE = int(mid_img_color - (mid_img_color - min_img_color) * step_lobe)
+                        thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
+                        imgData1 = np.expand_dims(thresholdedData, axis=0)
+                        show_image(imgData1)
+
+                        
 with col4:
-                st.write('Машина распознала')
+                st.write('Она распознала это как...')
 
 with st.expander('Пункт 7.'):
     st.write('Включи коррекцию яркости, если она есть, и посмотри, улучшило ли это изображение негатива цифры.'
