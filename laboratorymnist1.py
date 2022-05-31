@@ -9,9 +9,11 @@ import time
 from datetime import datetime 
 
 def show_image(img):
-  plt.imshow(Image.fromarray(img).convert('RGB')) #Отрисовка картинки .convert('RGB')
-  plt.show()
-            
+    plt.imshow(Image.fromarray(img).convert('RGB')) #Отрисовка картинки .convert('RGB')
+    plt.show()
+
+model_2d = load_model('/app/laboratory1/mnist_2d.h5')    
+  
 st.markdown('''<h1 style='text-align: center; color: black;'
             >Лабораторная работа "Распознавание рукописных цифр".</h1>''', 
             unsafe_allow_html=True)
@@ -79,6 +81,7 @@ with st.expander('Пункт 6.'):
                         
     with col4:
               st.write('Она распознала это как...')
+              
 
 with st.expander('Пункт 7.'):
     st.write('Включи коррекцию яркости, если она есть, и посмотри, улучшило ли это изображение негатива цифры.'
