@@ -58,7 +58,7 @@ with st.expander('Пункт 5.'):
 
 with st.expander('Пункт 6.'):
     st.write('Нажми на кнопку распознавания, запиши результат.')
-
+    
     col3, col4 = st.columns(2)
     with col3:      
               st.write('Вот что увидела нейронная сеть.')
@@ -83,7 +83,8 @@ with st.expander('Пункт 6.'):
     with col4:
               st.write('Она распознала это как...')
               y_predict1 = model_2d.predict(imgData1) 
-              
+              y_maxarg = np.argmax(y_predict1, axis=1)
+              st.subheader(int(y_maxarg))
 
 with st.expander('Пункт 7.'):
     st.write('Включи коррекцию яркости, если она есть, и посмотри, улучшило ли это изображение негатива цифры.'
