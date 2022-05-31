@@ -82,6 +82,7 @@ with st.expander('Пункт 6.'):
                         
     with col4:
               st.write('Она распознала это как...')
+              y_predict1 = model_2d.predict(imgData1) 
               
 
 with st.expander('Пункт 7.'):
