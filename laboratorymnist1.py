@@ -37,6 +37,7 @@ with col2:
             img_file_buffer = st.camera_input("Take a picture")
             if img_file_buffer is not None:
                         img = Image.open(img_file_buffer)
+                        img_array = np.array(img)
                         img_height, img_width = img_array.shape[0], img_array.shape[1]
                         img_center = int(img_width / 2)
                         left_border = int(img_center - img_height / 2)
