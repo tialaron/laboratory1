@@ -70,7 +70,8 @@ with col3:
                         THRESHOLD_VALUE = int(mid_img_color - (mid_img_color - min_img_color) * step_lobe)
                         thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
                         imgData1 = np.expand_dims(thresholdedData, axis=0)
-                        show_image(imgData1)
+                        #show_image(imgData1)
+                        st.image('/app/laboratory1/your_file_image.png')
 
                         
 with col4:
