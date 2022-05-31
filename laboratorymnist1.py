@@ -1,8 +1,8 @@
 #from turtle import width
 import streamlit as st
 import pandas as pd #Пандас
-import matplotlib.pyplot as plt #Отрисовка графиков
-import seaborn as sns
+#import matplotlib.pyplot as plt #Отрисовка графиков
+#import seaborn as sns
 import numpy as np #Numpy
 from PIL import Image
 import time
@@ -13,7 +13,7 @@ def show_image(img):
     plt.imshow(Image.fromarray(img).convert('RGB')) #Отрисовка картинки .convert('RGB')
     plt.show()
 
-model_2d = load_model('/app/laboratory1/mnist_2d.h5')    
+#model_2d = load_model('/app/laboratory1/mnist_2d.h5')    
   
 st.markdown('''<h1 style='text-align: center; color: black;'
             >Лабораторная работа "Распознавание рукописных цифр".</h1>''', 
