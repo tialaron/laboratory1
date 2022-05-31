@@ -61,17 +61,20 @@ with st.expander('Пункт 6.'):
               st.write('Вот что увидела нейронная сеть.')
               if img_file_buffer is not None:
                           image11 = Image.open('/app/laboratory1/your_file_image.png')
-                          img11 = image11.resize((28, 28), Image.ANTIALIAS)        
+                           
+                          img11 = image11.resize((28, 28), Image.ANTIALIAS)   
+                          img11.save('/app/laboratory1/your_file_image.png') 
+                          st.image('/app/laboratory1/your_file_image.png')
                           img12 = img11.convert("L")
                           imgData = np.asarray(img12)
                           step_lobe = .4
                           mid_img_color = np.sum(imgData) / imgData.size
                           min_img_color = imgData.min()
+                          
+                          
                           THRESHOLD_VALUE = int(mid_img_color - (mid_img_color - min_img_color) * step_lobe)
                           thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
                           imgData1 = np.expand_dims(thresholdedData, axis=0)
-                          #show_image(imgData1)
-                          st.image('/app/laboratory1/your_file_image.png')
 
                         
     with col4:
