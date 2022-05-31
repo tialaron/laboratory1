@@ -44,7 +44,7 @@ with col2:
                         right_border = int(img_center + img_height / 2)
                         img_array1 = img_array[:, left_border:right_border, :]
                         im = Image.fromarray(img_array1)
-                        im.save('/app/mnist_theory2/your_file_image.png')
+                        im.save('/app/laboratory1/your_file_image.png')
             
             
 with st.expander('Пункт 5.'):
@@ -60,7 +60,7 @@ col3, col4 = st.columns(2)
 with col3:
             st.write('Вот что увидела нейронная сеть.')
             if img_file_buffer is not None:
-                        image11 = Image.open('/app/mnist_theory2/your_file_image.png')
+                        image11 = Image.open('/app/laboratory1/your_file_image.png')
                         img11 = image11.resize((28, 28), Image.ANTIALIAS)        
                         img12 = img11.convert("L")
                         imgData = np.asarray(img12)
