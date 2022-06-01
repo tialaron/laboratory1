@@ -58,11 +58,11 @@ with st.expander('Пункт 5.'):
 
 with st.expander('Пункт 6.'):
     st.write('Нажми на кнопку распознавания, запиши результат.')
-    
+    isbutton1 = st.button('Распознать')
     col3, col4 = st.columns(2)
     with col3:      
               st.write('Вот что увидела нейронная сеть.')
-              if img_file_buffer is not None:
+              if isbutton1:
                           image11 = Image.open('/app/laboratory1/your_file_image.png')
                            
                           img11 = image11.resize((28, 28), Image.ANTIALIAS)   
@@ -82,9 +82,10 @@ with st.expander('Пункт 6.'):
                         
     with col4:
               st.write('Она распознала это как...')
-              y_predict1 = model_2d.predict(imgData1) 
-              y_maxarg = np.argmax(y_predict1, axis=1)
-              st.subheader(int(y_maxarg))
+              if isbutton1:
+                          y_predict1 = model_2d.predict(imgData1) 
+                          y_maxarg = np.argmax(y_predict1, axis=1)
+                          st.subheader(int(y_maxarg))
 
 with st.expander('Пункт 7.'):
     st.write('Включи коррекцию яркости, если она есть, и посмотри, улучшило ли это изображение негатива цифры.'
