@@ -125,6 +125,28 @@ with st.expander('Пункт 7.'):
 
 with st.expander('Пункт 8.'):
     st.write('Нажми на кнопку распознавания, запиши результат.')
+    isbutton2 = st.button('Распознать')
+    col7,col8 = st.columns(2)
+    with col7:
+             if isbutton2:
+                   st.image(file_path)
+    with col8:
+             if isbutton2:
+                   image112 = Image.open(file_path)
+                   img111 = image112.resize((28, 28), Image.ANTIALIAS)  
+                   img121 = img111.convert("L")
+                   imgData = np.asarray(img121)
+                   step_lobe = value_sli / 100
+                   mid_img_color = np.sum(imgData) / imgData.size
+                   min_img_color = imgData.min()
+                   THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
+                   thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
+                   imgData1 = np.expand_dims(thresholdedData, axis=0)
+                   y_predict1 = model_2d.predict(imgData1)
+                   y_maxarg = np.argmax(y_predict1, axis=1)
+                   st.subheader(int(y_maxarg))
+                   
+              
 
 with st.expander('Пункт 9.'):
     st.write('Включи фильтр Гаусса, если такая кнопка есть, нажми на кнопку распознавания, запиши результат.')
