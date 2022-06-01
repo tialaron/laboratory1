@@ -103,7 +103,7 @@ with st.expander('Пункт 7.'):
               step_lobe = value_sli / 100
               mid_img_color = np.sum(imgData) / imgData.size
               min_img_color = imgData.min()
-              THRESHOLD_VALUE = int(mid_img_color - (mid_img_color - min_img_color) * step_lobe)
+              THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
               thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
               imgData1 = np.expand_dims(thresholdedData, axis=0)
               st.write(imgData1.shape)
