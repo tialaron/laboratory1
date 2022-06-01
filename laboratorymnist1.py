@@ -14,7 +14,8 @@ def show_image(img):
     plt.show()
 
 model_2d = load_model('/app/laboratory1/mnist_2d.h5')    
-  
+file_path = '/app/laboratory1/your_file_image.png'
+
 st.markdown('''<h1 style='text-align: center; color: black;'
             >Лабораторная работа "Распознавание рукописных цифр".</h1>''', 
             unsafe_allow_html=True)
@@ -47,7 +48,7 @@ with col2:
                         right_border = int(img_center + img_height / 2)
                         img_array1 = img_array[:, left_border:right_border, :]
                         im = Image.fromarray(img_array1)
-                        im.save('/app/laboratory1/your_file_image.png')
+                        im.save(file_path)
             
             
 with st.expander('Пункт 5.'):
@@ -63,11 +64,11 @@ with st.expander('Пункт 6.'):
     with col3:      
               st.write('Вот что увидела нейронная сеть.')
               if isbutton1:
-                          image11 = Image.open('/app/laboratory1/your_file_image.png')
-                          st.image('/app/laboratory1/your_file_image.png') 
+                          image11 = Image.open(file_path)
+                          st.image(file_path) 
                           img11 = image11.resize((28, 28), Image.ANTIALIAS)   
-                          img11.save('/app/laboratory1/your_file_image.png') 
-                          #st.image('/app/laboratory1/your_file_image.png')
+                          img11.save(file_path) 
+                          
                           img12 = img11.convert("L")
                           imgData = np.asarray(img12)
                           step_lobe = .4
@@ -95,8 +96,8 @@ with st.expander('Пункт 7.'):
               value_sli = st.slider('Коррекция яркости', 0.0, 100.0, 50.0)
     with col6:
               st.write('Яркость',value_sli)
-              image11 = Image.open('/app/laboratory1/your_file_image.png')
-                
+              image11 = Image.open(file_path)
+              img11 = image11.resize((28, 28), Image.ANTIALIAS)     
 
 with st.expander('Пункт 8.'):
     st.write('Нажми на кнопку распознавания, запиши результат.')
