@@ -4,7 +4,7 @@ import pandas as pd #Пандас
 #import matplotlib.pyplot as plt #Отрисовка графиков
 #import seaborn as sns
 import numpy as np #Numpy
-from PIL import Image
+from PIL import Image, ImageEnhance
 import time
 from datetime import datetime
 from tensorflow.keras.models import load_model
@@ -97,25 +97,29 @@ with st.expander('Пункт 7.'):
     with col6:
               st.write('Яркость',value_sli)
               image111 = Image.open(file_path)
-              img111 = image111.resize((28, 28), Image.ANTIALIAS)     
-              img121 = img111.convert("L")
-              imgData = np.asarray(img121)
-              step_lobe = value_sli / 100
-              mid_img_color = np.sum(imgData) / imgData.size
-              min_img_color = imgData.min()
-              THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
-              thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
-              imgData1 = np.expand_dims(thresholdedData, axis=0)
-              st.write(imgData1.shape)
-              tgt1 = np.squeeze(imgData1)
-              st.write(tgt1.shape)
-              im111 = Image.fromarray(tgt1)
-              st.write(imgData1)
+              enhancer = ImageEnhance.Brightness(image111)
+              factor = 1 #gives original image
+              im_output = enhancer.enhance(factor)
+              im_output.save(file_path)
+              #img111 = image111.resize((28, 28), Image.ANTIALIAS)     
+              #img121 = img111.convert("L")
+              #imgData = np.asarray(img121)
+              #step_lobe = value_sli / 100
+              #mid_img_color = np.sum(imgData) / imgData.size
+              #min_img_color = imgData.min()
+              #THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
+              #thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
+              #imgData1 = np.expand_dims(thresholdedData, axis=0)
+              #st.write(imgData1.shape)
+              #tgt1 = np.squeeze(imgData1)
+              #st.write(tgt1.shape)
+              #im111 = Image.fromarray(tgt1)
+              #st.write(imgData1)
               #im111.save(file_path)
               st.image(file_path)
-              y_predict1 = model_2d.predict(imgData1) 
-              y_maxarg = np.argmax(y_predict1, axis=1)
-              st.subheader(int(y_maxarg))
+              #y_predict1 = model_2d.predict(imgData1) 
+              #y_maxarg = np.argmax(y_predict1, axis=1)
+              #st.subheader(int(y_maxarg))
 
 with st.expander('Пункт 8.'):
     st.write('Нажми на кнопку распознавания, запиши результат.')
