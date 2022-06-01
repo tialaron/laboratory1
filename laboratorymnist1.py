@@ -78,7 +78,7 @@ with st.expander('Пункт 6.'):
                           
                           #THRESHOLD_VALUE = int(mid_img_color - (mid_img_color - min_img_color) * step_lobe)
                           #thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
-                          #imgData1 = np.expand_dims(thresholdedData, axis=0)
+                          imgData1 = np.expand_dims(np.asarray(img11.convert("L")), axis=0)
 
                         
     with col4:
