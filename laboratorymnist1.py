@@ -64,10 +64,10 @@ with st.expander('Пункт 6.'):
               st.write('Вот что увидела нейронная сеть.')
               if isbutton1:
                           image11 = Image.open('/app/laboratory1/your_file_image.png')
-                           
+                          st.image('/app/laboratory1/your_file_image.png') 
                           img11 = image11.resize((28, 28), Image.ANTIALIAS)   
                           img11.save('/app/laboratory1/your_file_image.png') 
-                          st.image('/app/laboratory1/your_file_image.png')
+                          #st.image('/app/laboratory1/your_file_image.png')
                           img12 = img11.convert("L")
                           imgData = np.asarray(img12)
                           step_lobe = .4
@@ -90,6 +90,13 @@ with st.expander('Пункт 6.'):
 with st.expander('Пункт 7.'):
     st.write('Включи коррекцию яркости, если она есть, и посмотри, улучшило ли это изображение негатива цифры.'
              ' Зарисуй результат, как указано выше.')
+    col5,col6 = st.columns(2)
+    with col5:
+              value_sli = st.slider('Коррекция яркости', 0.0, 100.0, (25.0, 75.0))
+    with col6:
+              st.write('Яркость',value_sli)
+              image11 = Image.open('/app/laboratory1/your_file_image.png')
+                
 
 with st.expander('Пункт 8.'):
     st.write('Нажми на кнопку распознавания, запиши результат.')
