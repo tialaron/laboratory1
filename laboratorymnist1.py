@@ -88,11 +88,11 @@ with st.expander('Пункт 6.'):
                           st.subheader(int(y_maxarg))
 
 with st.expander('Пункт 7.'):
-    st.write('Включи коррекцию яркости, если она есть, и посмотри, улучшило ли это изображение негатива цифры.'
+    st.write('Включи коррекцию яркости. Посмотри, улучшило ли это изображение негатива цифры.'
              ' Зарисуй результат, как указано выше.')
     col5,col6 = st.columns(2)
     with col5:
-              value_sli = st.slider('Коррекция яркости', 0.0, 100.0, (25.0, 75.0))
+              value_sli = st.slider('Коррекция яркости', 0.0, 100.0, 50.0)
     with col6:
               st.write('Яркость',value_sli)
               image11 = Image.open('/app/laboratory1/your_file_image.png')
