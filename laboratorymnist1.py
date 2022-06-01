@@ -69,16 +69,16 @@ with st.expander('Пункт 6.'):
                           img11 = image11.resize((28, 28), Image.ANTIALIAS)   
                           img11.save(file_path) 
                           
-                          img12 = img11.convert("L")
-                          imgData = np.asarray(img12)
-                          step_lobe = .4
-                          mid_img_color = np.sum(imgData) / imgData.size
-                          min_img_color = imgData.min()
+                          #img12 = img11.convert("L")
+                          #imgData = np.asarray(img12)
+                          #step_lobe = .4
+                          #mid_img_color = np.sum(imgData) / imgData.size
+                          #min_img_color = imgData.min()
                           
                           
-                          THRESHOLD_VALUE = int(mid_img_color - (mid_img_color - min_img_color) * step_lobe)
-                          thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
-                          imgData1 = np.expand_dims(thresholdedData, axis=0)
+                          #THRESHOLD_VALUE = int(mid_img_color - (mid_img_color - min_img_color) * step_lobe)
+                          #thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
+                          #imgData1 = np.expand_dims(thresholdedData, axis=0)
 
                         
     with col4:
@@ -96,8 +96,18 @@ with st.expander('Пункт 7.'):
               value_sli = st.slider('Коррекция яркости', 0.0, 100.0, 50.0)
     with col6:
               st.write('Яркость',value_sli)
-              image11 = Image.open(file_path)
-              img11 = image11.resize((28, 28), Image.ANTIALIAS)     
+              image111 = Image.open(file_path)
+              img111 = image111.resize((28, 28), Image.ANTIALIAS)     
+              img121 = img111.convert("L")
+              imgData = np.asarray(img121)
+              step_lobe = value_sli / 100
+              mid_img_color = np.sum(imgData) / imgData.size
+              min_img_color = imgData.min()
+              THRESHOLD_VALUE = int(mid_img_color - (mid_img_color - min_img_color) * step_lobe)
+              thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
+              imgData1 = np.expand_dims(thresholdedData, axis=0)
+              imgData1.save(file_path)
+              st.image(file_path)
 
 with st.expander('Пункт 8.'):
     st.write('Нажми на кнопку распознавания, запиши результат.')
