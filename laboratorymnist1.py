@@ -98,7 +98,9 @@ with st.expander('Пункт 7.'):
               st.write('Яркость',value_sli)
               image111 = Image.open(file_path)
               enhancer = ImageEnhance.Brightness(image111)
-              factor = 1 #gives original image
+            
+              factor = 2*value_sli / 100 #фактор изменения
+                
               im_output = enhancer.enhance(factor)
               im_output.save(file_path)
               #img111 = image111.resize((28, 28), Image.ANTIALIAS)     
