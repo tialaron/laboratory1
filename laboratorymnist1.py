@@ -106,7 +106,8 @@ with st.expander('Пункт 7.'):
               THRESHOLD_VALUE = int(mid_img_color - (mid_img_color - min_img_color) * step_lobe)
               thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
               imgData1 = np.expand_dims(thresholdedData, axis=0)
-              im111 = Image.fromarray(imgData1)
+              st.write(imgData1.shape)
+              #im111 = Image.fromarray(imgData1)
               #im111.save(file_path)
               st.image(file_path)
               y_predict1 = model_2d.predict(imgData1) 
