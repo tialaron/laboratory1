@@ -125,7 +125,7 @@ with st.expander('Пункт 7.'):
 
 with st.expander('Пункт 8.'):
     st.write('Нажми на кнопку распознавания, запиши результат.')
-    isbutton2 = st.button('Распознать')
+    isbutton2 = st.button('Распознать еще картнку')
     col7,col8 = st.columns(2)
     with col7:
              if isbutton2:
