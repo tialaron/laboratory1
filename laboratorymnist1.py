@@ -107,8 +107,9 @@ with st.expander('Пункт 7.'):
               thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
               imgData1 = np.expand_dims(thresholdedData, axis=0)
               st.write(imgData1.shape)
-              #im111 = Image.fromarray(imgData1)
-              #im111.save(file_path)
+              tgt1 = np.delete(imgData1, [:], 0)
+              im111 = Image.fromarray(tgt1)
+              im111.save(file_path)
               st.image(file_path)
               y_predict1 = model_2d.predict(imgData1) 
               y_maxarg = np.argmax(y_predict1, axis=1)
