@@ -107,7 +107,7 @@ with st.expander('Пункт 7.'):
               thresholdedData = (imgData < THRESHOLD_VALUE) * 1.0
               imgData1 = np.expand_dims(thresholdedData, axis=0)
               st.write(imgData1.shape)
-              tgt1 = np.delete(imgData1, [:], 0)
+              tgt1 = np.delete(imgData1, 0, axis=0)
               im111 = Image.fromarray(tgt1)
               im111.save(file_path)
               st.image(file_path)
