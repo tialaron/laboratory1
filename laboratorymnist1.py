@@ -110,7 +110,7 @@ with st.expander('Пункт 7.'):
               tgt1 = np.squeeze(imgData1)
               st.write(tgt1.shape)
               im111 = Image.fromarray(tgt1)
-              st.write(im111)
+              st.write(imgData1)
               #im111.save(file_path)
               st.image(file_path)
               y_predict1 = model_2d.predict(imgData1) 
