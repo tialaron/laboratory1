@@ -15,11 +15,15 @@ def show_image(img):
 
 model_2d = load_model('/app/laboratory1/mnist_2d.h5')    
 file_path = '/app/laboratory1/your_file_image.png'
+picture_all = '/app/laboratory1/realtrack1.jpg'
 
 st.markdown('''<h1 style='text-align: center; color: black;'
             >Лабораторная работа "Распознавание рукописных цифр".</h1>''', 
             unsafe_allow_html=True)
 
+with st.expander('Общая схема создания нейронной сети.'):
+    st.image(picture_all)
+    
 with st.expander('Пункт 1.'):
     st.write('Разверни и прочитай все ячейки.')
 
