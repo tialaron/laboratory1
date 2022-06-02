@@ -4,7 +4,7 @@ import pandas as pd #Пандас
 #import matplotlib.pyplot as plt #Отрисовка графиков
 #import seaborn as sns
 import numpy as np #Numpy
-from PIL import Image, ImageEnhance
+from PIL import Image, ImageEnhance, ImageFilter
 import time
 from datetime import datetime
 from tensorflow.keras.models import load_model
@@ -154,7 +154,15 @@ with st.expander('Пункт 8.'):
 
 with st.expander('Пункт 9.'):
     st.write('Включи фильтр Гаусса, если такая кнопка есть, нажми на кнопку распознавания, запиши результат.')
-
+    col9,col10 = st.columns(2)
+    with col9:
+            value_gaus = st.slider('Фильтр Гаусса', 0.0, 100.0, 50.0)
+    with col10:
+            st.write('Фильтр Гаусса',value_gaus)
+            image222 = Image.open(file_path)
+            im2 = image222.filter(ImageFilter.GaussianBlur(radius = 5))
+            im2.save(file_path)
+            st.image(file_path)
 with st.expander('Пункт 10'):
     st.write('Поставь 5 разных значений порога отсечки. Для каждого: посмотри, улучшило ли это изображение'
              ' негатива цифры. Зарисуй результат, как указано выше. Нажми на кнопку распознавания, '
