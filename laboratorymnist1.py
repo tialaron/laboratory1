@@ -160,7 +160,7 @@ with st.expander('Пункт 9.'):
     with col10:
             st.write('Фильтр Гаусса',value_gaus)
             image222 = Image.open(file_path)
-            im2 = image222.filter(ImageFilter.GaussianBlur(radius = 5))
+            im2 = image222.filter(ImageFilter.GaussianBlur(radius = value_gauss/50))
             im2.save(file_path)
             st.image(file_path)
 with st.expander('Пункт 10'):
