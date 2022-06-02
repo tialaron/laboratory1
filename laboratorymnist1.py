@@ -170,6 +170,7 @@ with st.expander('Пункт 10'):
     with col11:
             if isbutton3:
                    st.image(file_path)
+    with col12:
             if isbutton3:
                    image333 = Image.open(file_path)
                    img333 = image333.resize((28, 28), Image.ANTIALIAS) 
