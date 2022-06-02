@@ -164,9 +164,27 @@ with st.expander('Пункт 9.'):
             im2.save(file_path)
             st.image(file_path)
 with st.expander('Пункт 10'):
-    st.write('Поставь 5 разных значений порога отсечки. Для каждого: посмотри, улучшило ли это изображение'
-             ' негатива цифры. Зарисуй результат, как указано выше. Нажми на кнопку распознавания, '
-             'запиши результат.')
+    st.write('Попробуем теперь еще раз распознать картинку.')
+    isbutton3 = st.button('Распознать картнку еще раз')
+    col11,col12 = st.columns(2)
+    with col11:
+            if isbutton3:
+                   st.image(file_path)
+            if isbutton3:
+                   image333 = Image.open(file_path)
+                   img333 = image333.resize((28, 28), Image.ANTIALIAS) 
+                   img334 = img333.convert("L")
+                   imgData4 = np.asarray(img334) 
+                   step_lobe = value_sli / 100
+                   mid_img_color = np.sum(imgData4) / imgData4.size
+                   min_img_color = imgData4.min()
+                   THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
+                   thresholdedData = (imgData4 < THRESHOLD_VALUE) * 1.0
+                   imgData5 = np.expand_dims(thresholdedData, axis=0)
+                   y_predict2 = model_2d.predict(imgData5)
+                   y_maxarg2 = np.argmax(y_predict2, axis=1)
+                   st.subheader(int(y_maxarg2)) 
+                    
 with st.expander('Пункт 11.'):
     st.write('Сделай выводы, какие именно фильтры и как влияют на результат эксперимента')
 with st.expander('Пожелания и замечания'):
