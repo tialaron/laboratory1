@@ -169,3 +169,5 @@ with st.expander('Пункт 10'):
              'запиши результат.')
 with st.expander('Пункт 11.'):
     st.write('Сделай выводы, какие именно фильтры и как влияют на результат эксперимента')
+with st.expander('Пожелания и замечания'):
+    st.write('https://docs.google.com/spreadsheets/d/1TuGgZsT2cwAIlNr80LdVn4UFPHyEePEiBE-JG6IQUT0/edit?usp=sharing')
