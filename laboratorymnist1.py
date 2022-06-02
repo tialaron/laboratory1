@@ -156,11 +156,11 @@ with st.expander('Пункт 9.'):
     st.write('Включи фильтр Гаусса, если такая кнопка есть, нажми на кнопку распознавания, запиши результат.')
     col9,col10 = st.columns(2)
     with col9:
-            value_gaus = st.slider('Фильтр Гаусса', 0.0, 100.0, 50.0)
+            value_gaus = st.slider('Фильтр Гаусса', 0, 10, 0)
     with col10:
             st.write('Фильтр Гаусса',value_gaus)
             image222 = Image.open(file_path)
-            im2 = image222.filter(ImageFilter.GaussianBlur(radius = value_gauss/50))
+            im2 = image222.filter(ImageFilter.GaussianBlur(radius = value_gauss))
             im2.save(file_path)
             st.image(file_path)
 with st.expander('Пункт 10'):
