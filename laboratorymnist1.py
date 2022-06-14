@@ -196,9 +196,9 @@ with st.expander('Пункт 12.'):
     with col14:
             st.write('Порог отсечки',value_thres)
             image444 = Image.open(file_path)
-            img334 = img333.convert("L")
+            img334 = image444.convert("L")
             imgData4 = np.asarray(img334)
-            step_lobe = value_sli / 100
+            step_lobe = value_thres / 100
             mid_img_color = np.sum(imgData4) / imgData4.size
             min_img_color = imgData4.min()
             THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
