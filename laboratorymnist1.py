@@ -206,6 +206,8 @@ with st.expander('Пункт 12.'):
             thresholdedData = (i3 < THRESHOLD_VALUE) * 1.0
             st.write(thresholdedData)
             imm1 = Image.fromarray(thresholdedData)
+            imm1.save(file_path)
+            st.image(file_path)
             #i4 = np.expand_dims(thresholdedData, axis=0)
             #imm1 = Image.fromarray(i4) 
             #imm1.save(file_path)
