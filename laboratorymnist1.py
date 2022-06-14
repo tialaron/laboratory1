@@ -208,6 +208,7 @@ with st.expander('Пункт 12.'):
             imm1 = imm1.convert("L")
             imm1.save(file_path)
             st.write(imm1) 
+            st.image(file_path)
             #i4 = np.expand_dims(thresholdedData, axis=0)
             #imm1 = Image.fromarray(i4) 
             #imm1.save(file_path)
