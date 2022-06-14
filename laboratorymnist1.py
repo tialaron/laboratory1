@@ -203,7 +203,7 @@ with st.expander('Пункт 12.'):
             mid_img_color = np.sum(i3) / i3.size
             min_img_color = i3.min()
             THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
-            thresholdedData = (i3 < THRESHOLD_VALUE) * 1.0
+            thresholdedData = (i3 < THRESHOLD_VALUE) * 255.0
             imm1 = Image.fromarray(thresholdedData)
             imm1 = imm1.convert("L")
             imm1.save(file_path)
