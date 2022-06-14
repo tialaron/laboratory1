@@ -204,7 +204,8 @@ with st.expander('Пункт 12.'):
             THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
             thresholdedData = (imgData4 < THRESHOLD_VALUE) * 1.0
             imgData5 = np.expand_dims(thresholdedData, axis=0)
-            imgData5.save(file_path)
+            imm1 = Image.fromarray(imgData5) 
+            imm1.save(file_path)
             st.image(file_path)
             
 with st.expander('Пожелания и замечания'):                
