@@ -204,11 +204,11 @@ with st.expander('Пункт 12.'):
             min_img_color = i3.min()
             THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
             thresholdedData = (i3 < THRESHOLD_VALUE) * 1.0
-            
-            i4 = np.expand_dims(thresholdedData, axis=0)
-            imm1 = Image.fromarray(i4) 
-            imm1.save(file_path)
-            st.image(file_path)
+            st.write(thresholdedData)
+            #i4 = np.expand_dims(thresholdedData, axis=0)
+            #imm1 = Image.fromarray(i4) 
+            #imm1.save(file_path)
+            #st.image(file_path)
             
 with st.expander('Пожелания и замечания'):                
     st.write('https://docs.google.com/spreadsheets/d/1TuGgZsT2cwAIlNr80LdVn4UFPHyEePEiBE-JG6IQUT0/edit?usp=sharing')
