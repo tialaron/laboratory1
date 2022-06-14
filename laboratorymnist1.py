@@ -196,7 +196,8 @@ with st.expander('Пункт 12.'):
     with col14:
             st.write('Порог отсечки',value_thres)
             image444 = Image.open(file_path)
-            img334 = image444.convert("L")
+            img333 = image444.resize((28, 28), Image.ANTIALIAS) 
+            img334 = img333.convert("L")
             imgData4 = np.asarray(img334)
             step_lobe = value_thres / 100
             mid_img_color = np.sum(imgData4) / imgData4.size
