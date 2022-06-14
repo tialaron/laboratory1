@@ -188,5 +188,23 @@ with st.expander('Пункт 10'):
                     
 with st.expander('Пункт 11.'):
     st.write('Сделай выводы, какие именно фильтры и как влияют на результат эксперимента')
-with st.expander('Пожелания и замечания'):
+with st.expander('Пункт 12.'):
+    st.write('Посмотрим как "видит" картинку нейронная сеть')
+    col13,col14 = st.columns(2)
+    with col13:
+            value_thres = st.slider('Порог отсечки', 0, 100, 50)
+    with col14:
+            st.write('Порог отсечки',value_thres)
+            image444 = Image.open(file_path)
+            img334 = img333.convert("L")
+            imgData4 = np.asarray(img334)
+            step_lobe = value_sli / 100
+            mid_img_color = np.sum(imgData4) / imgData4.size
+            min_img_color = imgData4.min()
+            THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
+            thresholdedData = (imgData4 < THRESHOLD_VALUE) * 1.0
+            imgData5 = np.expand_dims(thresholdedData, axis=0)
+            
+            
+with st.expander('Пожелания и замечания'):                
     st.write('https://docs.google.com/spreadsheets/d/1TuGgZsT2cwAIlNr80LdVn4UFPHyEePEiBE-JG6IQUT0/edit?usp=sharing')
