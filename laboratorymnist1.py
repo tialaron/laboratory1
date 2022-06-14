@@ -70,7 +70,7 @@ with st.expander('Пункт 6.'):
               if isbutton1:
                           image11 = Image.open(file_path)
                           st.image(file_path) 
-                          img11 = image11.resize((28, 28), Image.ANTIALIAS)   
+                          img11 = image11.resize((28, 28), Image.LANCZOS)   
                           img11.save(file_path) 
                           
                           #img12 = img11.convert("L")
@@ -107,7 +107,7 @@ with st.expander('Пункт 7.'):
                 
               im_output = enhancer.enhance(factor)
               im_output.save(file_path)
-              #img111 = image111.resize((28, 28), Image.ANTIALIAS)     
+              #img111 = image111.resize((28, 28), Image.LANCZOS)     
               #img121 = img111.convert("L")
               #imgData = np.asarray(img121)
               #step_lobe = value_sli / 100
@@ -137,7 +137,7 @@ with st.expander('Пункт 8.'):
     with col8:
              if isbutton2:
                    image112 = Image.open(file_path)
-                   img111 = image112.resize((28, 28), Image.ANTIALIAS)  
+                   img111 = image112.resize((28, 28), Image.LANCZOS)  
                    img121 = img111.convert("L")
                    imgData = np.asarray(img121)
                    step_lobe = value_sli / 100
@@ -173,7 +173,7 @@ with st.expander('Пункт 10'):
     with col12:
             if isbutton3:
                    image333 = Image.open(file_path)
-                   img333 = image333.resize((28, 28), Image.ANTIALIAS) 
+                   img333 = image333.resize((28, 28), Image.LANCZOS) 
                    img334 = img333.convert("L")
                    imgData4 = np.asarray(img334) 
                    step_lobe = value_sli / 100
