@@ -196,17 +196,17 @@ with st.expander('Пункт 12.'):
     with col14:
             st.write('Порог отсечки',value_thres)
             image444 = Image.open(file_path)
-            img333 = image444.resize((28, 28), Image.ANTIALIAS) 
-            img334 = img333.convert("L")
-            imgData4 = np.asarray(img334)
+            i1 = image444.resize((28, 28), Image.ANTIALIAS) 
+            i2 = i1.convert("L")
+            i3 = np.asarray(i2)
             step_lobe = value_thres / 100
-            mid_img_color = np.sum(imgData4) / imgData4.size
-            min_img_color = imgData4.min()
+            mid_img_color = np.sum(i3) / i3.size
+            min_img_color = i3.min()
             THRESHOLD_VALUE = (mid_img_color - (mid_img_color - min_img_color) * step_lobe)
-            thresholdedData = (imgData4 < THRESHOLD_VALUE) * 1.0
+            thresholdedData = (i3 < THRESHOLD_VALUE) * 1.0
             
-            imgData5 = np.expand_dims(thresholdedData, axis=0)
-            imm1 = Image.fromarray(imgData5) 
+            i4 = np.expand_dims(thresholdedData, axis=0)
+            imm1 = Image.fromarray(i4) 
             imm1.save(file_path)
             st.image(file_path)
             
